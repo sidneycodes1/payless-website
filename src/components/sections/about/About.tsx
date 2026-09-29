@@ -35,7 +35,7 @@ export const About = () => {
           {/* RIGHT column — quote / paragraphs / closing quote.
               DOM order 2 (sits under the headline on mobile); spans both
               grid rows on the right at lg. */}
-          <div className="flex w-full flex-col gap-[30px] py-[10px] lg:gap-[50px] lg:py-[30px] xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:justify-between">
+          <div className="flex w-full flex-col gap-[30px] py-[10px] lg:gap-[50px] lg:py-[30px] xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:self-center">
             <Image
               src={ASSETS.quoteMark}
               alt=""

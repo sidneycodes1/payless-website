@@ -7,13 +7,6 @@ const REGISTRY_STEPS = [
   "Found your phone? Clear the flag. Use your secret phrase to mark it safe again — no office visit, no waiting.",
 ];
 
-const MARKETPLACE_STEPS = [
-  "Find a phone near you. Browse listings in your city — every one already checked against the registry.",
-  "Pay, and your money is held. Not the seller's, not ours — held safely until you confirm the phone is what you paid for.",
-  "Meet at a trusted location. A nearby partner shop, not a random street corner.",
-  "Inspect, then release payment. Only when you're happy does the seller get paid.",
-];
-
 const ArrowPath = () => (
   <path
     d="M3.33 10h13.34M11.67 5l5 5-5 5"
@@ -107,25 +100,6 @@ export const HowItWorks = () => {
           <p className="mt-12 max-w-[540px] text-[14px] leading-[1.55] text-blue-light-hover">
             Before you buy, enter the phone&apos;s IMEI (dial *#06# to find it) and Payless checks it against the
             registry instantly. Clean means it&apos;s safe to buy. Flagged means walk away — no forms, no waiting.
-          </p>
-        </div>
-
-        {/* Block 2 — Marketplace, right aligned */}
-        <div className="mt-20">
-          <h3 className="text-right text-h3 font-semibold text-white">
-            How the <span className="text-near-black">Marketplace</span> Works
-          </h3>
-          <p className="mt-6 ml-auto max-w-[780px] text-right text-[14px] leading-[1.55] text-blue-light-hover">
-            Find a phone for sale near you and pay — your money is held safely, not sent to the seller yet. Meet at a
-            trusted local shop to inspect the phone in person. Happy with it? Release payment on the spot. Not happy?
-            Walk away, no money lost.
-          </p>
-
-          <StepRow steps={MARKETPLACE_STEPS} />
-
-          <p className="mt-12 ml-auto max-w-[560px] text-right text-[14px] leading-[1.55] text-blue-light-hover">
-            List your phone free in minutes, get matched with a nearby buyer, meet at a trusted local shop, and get
-            paid the moment they confirm.
           </p>
         </div>
       </div>

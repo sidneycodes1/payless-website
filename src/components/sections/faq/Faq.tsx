@@ -18,17 +18,8 @@ const faqItems = [
       "Search its IMEI number (dial *#06# on most phones to find it) on the Registry. You'll see instantly if it's flagged.",
   },
   {
-    question: "What if I have a problem during a trade?",
-    answer:
-      "The partner shop where you meet acts as a neutral third party. If something's wrong with the device, they help sort it out before any money changes hands.",
-  },
-  {
     question: "What if my phone gets found after I've flagged it stolen?",
     answer: "You can clear the flag yourself using the secret phrase you were given when you reported it.",
-  },
-  {
-    question: "Which cities is Payless in?",
-    answer: "Currently Ilorin, expanding to Lagos next.",
   },
 ];
 
