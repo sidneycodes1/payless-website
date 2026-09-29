@@ -19,15 +19,15 @@ const PARAGRAPH_TWO =
 export const About = () => {
   return (
     <section id="about" className="bg-primary">
-      {/* Section padding: 16px mobile -> 50px desktop, around the cream card */}
-      <div className="mx-auto w-full max-w-[1440px] p-4 sm:p-6 lg:p-[50px]">
-        <div className="flex flex-col gap-12 rounded-[32px] bg-cream p-6 lg:rounded-[50px] lg:p-[50px] xl:grid xl:grid-cols-[680px_467px] xl:grid-rows-[auto_1fr] xl:justify-between xl:gap-x-0 xl:gap-y-0">
+      {/* Blue frame around the cream card: 16px mobile -> generous frame on desktop */}
+      <div className="mx-auto w-full max-w-[1440px] p-4 sm:p-6 lg:p-10 xl:p-[64px]">
+        <div className="flex flex-col gap-12 rounded-[32px] bg-cream p-6 lg:rounded-[50px] lg:p-[50px] xl:grid xl:grid-cols-[1.45fr_1fr] xl:grid-rows-[auto_1fr] xl:gap-x-[70px] xl:gap-y-0">
           {/* Headline group — top-left. DOM order 1 (headline first on mobile). */}
-          <div className="flex flex-col gap-[15px] xl:col-start-1 xl:row-start-1 xl:w-[677px]">
+          <div className="flex w-full flex-col gap-[15px] xl:col-start-1 xl:row-start-1">
             <span className="inline-flex w-fit rounded-[15px] border-2 border-near-black bg-blue-light-active px-[10px] py-[8px] font-sans text-[12px] font-semibold leading-none text-near-black">
               About Us
             </span>
-            <h2 className="w-full font-display text-[30px] font-semibold leading-[1.5] text-near-black sm:text-[40px] lg:w-[677px] lg:text-[48px]">
+            <h2 className="w-full font-display text-[30px] font-semibold leading-[1.5] text-near-black sm:text-[40px] lg:text-[48px]">
               Built for how <span className="text-primary">devices</span> are traded.
             </h2>
           </div>
@@ -35,7 +35,7 @@ export const About = () => {
           {/* RIGHT column — quote / paragraphs / closing quote.
               DOM order 2 (sits under the headline on mobile); spans both
               grid rows on the right at lg. */}
-          <div className="flex w-full flex-col gap-[30px] py-[10px] lg:gap-[50px] lg:py-[30px] xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:self-center">
+          <div className="flex w-full flex-col gap-[30px] py-[10px] lg:gap-[50px] lg:py-[30px] lg:pr-[40px] xl:col-start-2 xl:row-start-1 xl:row-span-2 xl:self-center">
             <Image
               src={ASSETS.quoteMark}
               alt=""
@@ -44,7 +44,7 @@ export const About = () => {
               className="h-[50px] w-[50px] self-start object-contain"
             />
 
-            <div className="flex flex-col gap-5 text-left font-sans text-[16px] font-medium leading-[1.5] text-near-black lg:text-right">
+            <div className="flex flex-col gap-5 text-left font-sans text-[14px] font-medium leading-[1.5] text-near-black lg:text-right">
               <p>{PARAGRAPH_ONE}</p>
               <p>{PARAGRAPH_TWO}</p>
             </div>
@@ -58,13 +58,13 @@ export const About = () => {
             />
           </div>
 
-          {/* Founder cards — DOM order 3 (after the paragraphs on mobile, as a
-              horizontal scroll-snap row); bottom-left row of 3 at lg. */}
-          <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 lg:mx-0 lg:w-[680px] lg:snap-none lg:justify-between lg:overflow-visible lg:px-0 lg:pb-0 xl:col-start-1 xl:row-start-2 xl:self-end">
+          {/* Founder cards — DOM order 3. Three equal flex cards that always
+              fit the available width (no horizontal scroll at any breakpoint). */}
+          <div className="flex w-full gap-2 sm:gap-4 xl:col-start-1 xl:row-start-2 xl:self-end">
             {FOUNDER_CARDS.map((src, i) => (
               <div
                 key={src}
-                className="aspect-[200/230] w-[200px] shrink-0 snap-start overflow-hidden rounded-[25px]"
+                className="aspect-[200/230] min-w-0 flex-1 overflow-hidden rounded-[25px]"
               >
                 <Image
                   src={src}

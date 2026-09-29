@@ -52,10 +52,9 @@ export const Solution = () => {
           <span className="text-h8 font-semibold text-primary">By payless</span>
         </div>
 
-        {/* Two product cards */}
-        <div className="mt-14 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-10">
+        {/* Product card */}
+        <div className="mt-14 grid gap-8 lg:mt-16 lg:gap-10">
           <ProductCard id="registry" tag="Product 01" title="Registry — Free, for everyone." />
-          <ProductCard id="marketplace" tag="Product 02" title="Marketplace — Where you buy and sell." />
         </div>
       </div>
     </section>
