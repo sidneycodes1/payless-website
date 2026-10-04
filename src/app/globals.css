@@ -28,12 +28,20 @@
 
 html {
   font-size: 16px; /* 1rem = 16px */
+  /* Real-device hardening: stop Android/Chrome font-boosting and iOS
+     orientation text inflation from breaking the mobile layout. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  /* Safety net: a 1px sub-pixel rounding overflow on some mobile browsers
+     must never create a horizontal scrollbar; all sections already fit by
+     design. clip (not hidden) so body stays out of the scroll chain. */
+  overflow-x: clip;
 }
 
 /* Display font (Bricolage Grotesque) applies to headings only. */

@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local visual-verification artifacts (screenshots + Chromium user-data
+    // with tens of thousands of files). Never linted, never committed.
+    ".visual-check/**",
   ]),
 ]);
 
