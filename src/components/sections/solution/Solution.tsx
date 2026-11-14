@@ -29,9 +29,9 @@ const ProductCard = ({
         </span>
 
         <h3 className="mt-6 text-h4 font-bold leading-[1.3] text-near-black">
-          {title}{" "}
-          <span className="ml-1 whitespace-nowrap text-h8 font-semibold text-primary">By payless</span>
+          {title}
         </h3>
+        <p className="mt-2 text-h8 font-semibold text-primary">By payless</p>
       </div>
 
       <div className="mt-10 rounded-[22px] border border-near-black bg-blue-light-active p-5 lg:mt-12">

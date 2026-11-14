@@ -104,7 +104,7 @@ export const HowItWorks = () => {
 
           <StepRow steps={REGISTRY_STEPS} />
 
-          <p className="mt-6 max-w-[540px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px]">
+          <p className="mt-6 max-w-[466px] text-[12px] leading-[1.65] text-blue-light-hover sm:text-[13px]">
             Before you buy, enter the phone&apos;s IMEI (dial *#06# to find it) and Payless checks it against the
             registry instantly. Clean means it&apos;s safe to buy. Flagged means walk away — no forms, no waiting.
           </p>
@@ -113,13 +113,13 @@ export const HowItWorks = () => {
             <h3 className="text-h3 font-semibold text-white">
               How the <span className="text-near-black">Marketplace</span> Works
             </h3>
-            <p className="mt-4 max-w-[650px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px] lg:ml-auto">
+            <p className="mt-4 max-w-[657px] text-[12px] leading-relaxed text-blue-light-hover sm:text-[13px] lg:ml-auto">
               Find a phone for sale near you and pay — your money is held safely, not sent to the seller yet. Meet at a
               trusted local shop to inspect the phone in person. Happy with it? Release payment on the spot. Not happy?
               Walk away, no money lost.
             </p>
             <StepRow steps={MARKETPLACE_STEPS} />
-            <p className="mt-6 max-w-[540px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px] lg:ml-auto">
+            <p className="mt-6 max-w-[466px] text-[12px] leading-[1.65] text-blue-light-hover sm:text-[13px] lg:ml-auto">
               List your phone free in minutes, get matched with a nearby buyer, meet at a trusted local shop, and get
               paid the moment they confirm.
             </p>

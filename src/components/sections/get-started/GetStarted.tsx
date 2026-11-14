@@ -52,8 +52,8 @@ export const GetStarted = () => {
               </h2>
             </div>
 
-            <div className="flex flex-col items-start gap-5 lg:items-end">
-              <p className="max-w-md text-h7 leading-relaxed text-near-black lg:text-right">
+            <div className="flex w-full flex-col items-start gap-5 lg:w-auto lg:max-w-[500px] lg:items-end">
+              <p className="w-full text-h7 leading-relaxed text-near-black lg:text-right">
                 Check a phone, list one for sale, or just see what&apos;s nearby — no account required to browse.
               </p>
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

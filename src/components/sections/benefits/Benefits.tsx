@@ -23,16 +23,6 @@ const CHECKLIST = [
   },
 ];
 
-const StatPill = ({ value, label, className }: { value: string; label: string; className?: string }) => (
-  <div
-    className={`flex w-fit items-center gap-3 rounded-2xl bg-near-black px-4 py-2.5 sm:px-5 sm:py-3 shadow-md ${className ?? ""}`}
-  >
-    <span className="text-xl sm:text-2xl font-bold text-white">{value}</span>
-    <span aria-hidden="true" className="h-7 w-px shrink-0 bg-white/40" />
-    <span className="max-w-[110px] text-[11px] sm:text-xs font-semibold leading-tight text-white">{label}</span>
-  </div>
-);
-
 export const Benefits = () => {
   return (
     <section className="bg-cream py-12 lg:py-16">
@@ -100,38 +90,43 @@ export const Benefits = () => {
             ))}
           </ul>
 
-          {/* Right Visual Box with Photo and Overlays */}
-          <div className="relative mx-auto h-[440px] w-full max-w-[540px] rounded-3xl lg:h-[480px]">
-            {/* Center photo */}
-            <div className="absolute left-1/2 top-1/2 h-[220px] w-[80%] max-w-[390px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[40px] shadow-sm">
-              <Image
-                src={ASSETS.benefitsPhoto}
-                alt="Person holding a phone out towards the camera"
-                width={866}
-                height={475}
-                className="h-full w-full object-cover"
-              />
-            </div>
+          {/* Right Visual Box with Photo and Overlays — Exact Figma Frame 125 (632x539) */}
+          <div className="relative mx-auto flex w-full items-center justify-center lg:justify-end">
+            <div className="relative h-[290px] w-[340px] sm:h-[360px] sm:w-[420px] lg:h-[539px] lg:w-[632px] origin-center lg:origin-top-right transform scale-[0.54] sm:scale-[0.66] lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 transition-transform">
+              <div className="absolute left-0 top-0 h-[539px] w-[632px]">
+                {/* Frame 121: Photo (W: 432.54px, H: 237.32px, X: 63.46px, Y: 145.66px, rounded: 63.8px) */}
+                <div className="absolute left-[63.46px] top-[145.66px] h-[237.32px] w-[432.54px] overflow-hidden rounded-[63.8px] shadow-sm">
+                  <Image
+                    src={ASSETS.benefitsPhoto}
+                    alt="Person holding a phone out towards the camera"
+                    width={866}
+                    height={475}
+                    priority
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
-            {/* Stat 1: 100% Free IMEI Checks */}
-            <StatPill
-              value="100%"
-              label="Free IMEI Checks"
-              className="absolute right-2 top-4 sm:right-6 sm:top-8 z-10"
-            />
+                {/* Frame 97: Stat 1 (W: 189px, H: 53.34px Hug, X: 357px, Y: 58.98px) */}
+                <div className="absolute left-[357px] top-[58.98px] z-10 flex h-[53.34px] w-[189px] items-center gap-[8.5px] rounded-[17px] bg-near-black px-[15px] py-[10px] shadow-md">
+                  <span className="text-[20px] font-bold text-white leading-none">100%</span>
+                  <span aria-hidden="true" className="h-6 w-px shrink-0 bg-white/40" />
+                  <span className="text-[11px] font-semibold leading-tight text-white">Free IMEI Checks</span>
+                </div>
 
-            {/* Stat 2: 12-hour Buyer Protection Window */}
-            <StatPill
-              value="12-hour"
-              label="Buyer Protection Window"
-              className="absolute bottom-4 left-2 sm:bottom-8 sm:left-4 z-10"
-            />
+                {/* Frame 123: Stat 2 (W: 270px, H: 61.78px Hug, X: 33px, Y: 412.98px) */}
+                <div className="absolute left-[33px] top-[412.98px] z-10 flex h-[61.78px] w-[270px] items-center gap-[8.7px] rounded-[22px] bg-near-black px-[15.6px] py-[13.9px] shadow-md">
+                  <span className="text-[22px] font-bold text-white leading-none whitespace-nowrap">12-hour</span>
+                  <span aria-hidden="true" className="h-7 w-px shrink-0 bg-white/40" />
+                  <span className="text-[12px] font-semibold leading-tight text-white">Buyer Protection Window</span>
+                </div>
 
-            {/* Stat 3: Flag a stolen phone in under 60 seconds */}
-            <div className="absolute bottom-16 right-2 sm:bottom-20 sm:right-4 z-10 max-w-[200px] rounded-2xl bg-near-black/15 p-3.5 backdrop-blur-md sm:max-w-[220px]">
-              <p className="text-[12px] leading-snug text-near-black">
-                Flag a stolen phone in under 60 seconds — no forms, no waiting.
-              </p>
+                {/* Frame 124: Stat 3 (W: 211px, H: 86px Hug, X: 387px, Y: 342.98px, rounded: 25px) */}
+                <div className="absolute left-[387px] top-[342.98px] z-10 flex h-[86px] w-[211px] items-center gap-[10px] rounded-[25px] bg-near-black/20 px-[18px] py-[16px] backdrop-blur-[25px] shadow-sm">
+                  <p className="font-sans text-[12px] font-medium leading-[1.4] text-near-black">
+                    Flag a stolen phone in under 60 seconds — no forms, no waiting.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
