@@ -57,10 +57,22 @@ export const GetStarted = () => {
                 Check a phone, list one for sale, or just see what&apos;s nearby — no account required to browse.
               </p>
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <Button variant="outline-dark" icon="arrow" className="w-full sm:w-auto">
+                <Button
+                  variant="outline-dark"
+                  icon="arrow"
+                  href="https://payless-frontend-eight.vercel.app/search"
+                  target="_blank"
+                  className="w-full sm:w-auto"
+                >
                   Check a Phone
                 </Button>
-                <Button variant="black" icon="link" className="w-full sm:w-auto">
+                <Button
+                  variant="black"
+                  icon="link"
+                  href="/coming-soon"
+                  target="_blank"
+                  className="w-full sm:w-auto"
+                >
                   Start selling
                 </Button>
               </div>

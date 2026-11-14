@@ -83,7 +83,12 @@ export const Nav = () => {
         <div className="flex items-center gap-2">
           {/* CTA — desktop (Figma node-id: 195:9383) */}
           <div className="hidden lg:block">
-            <Button variant="black-sm" icon="arrow" href="#get-started">
+            <Button
+              variant="black-sm"
+              icon="arrow"
+              href="https://payless-frontend-eight.vercel.app/"
+              target="_blank"
+            >
               Get Started
             </Button>
           </div>
@@ -147,7 +152,8 @@ export const Nav = () => {
           <Button
             variant="black"
             icon="arrow"
-            href="#get-started"
+            href="https://payless-frontend-eight.vercel.app/"
+            target="_blank"
             className="mt-6 w-full min-h-[44px] justify-center"
             onClick={() => setOpen(false)}
           >

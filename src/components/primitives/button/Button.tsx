@@ -9,6 +9,8 @@ type ButtonProps = {
   icon?: ButtonIcon;
   /** When provided the button renders as an <a> element. */
   href?: string;
+  target?: string;
+  rel?: string;
   className?: string;
   onClick?: () => void;
   children: ReactNode;
@@ -68,7 +70,16 @@ const LinkIcon = () => (
   </svg>
 );
 
-export const Button = ({ variant = "black", icon = "none", href, className, onClick, children }: ButtonProps) => {
+export const Button = ({
+  variant = "black",
+  icon = "none",
+  href,
+  target,
+  rel,
+  className,
+  onClick,
+  children,
+}: ButtonProps) => {
   const content = (
     <>
       {children}
@@ -84,8 +95,9 @@ export const Button = ({ variant = "black", icon = "none", href, className, onCl
   );
 
   if (href) {
+    const finalRel = rel ?? (target === "_blank" ? "noopener noreferrer" : undefined);
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a href={href} target={target} rel={finalRel} className={classes} onClick={onClick}>
         {content}
       </a>
     );

@@ -189,10 +189,22 @@ export const Hero = () => {
             {/* CTAs row */}
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4 2xl:gap-[25px] lg:justify-end">
               <span id="registry-anchor" className="sr-only" aria-hidden="true" />
-              <Button variant="outline" icon="arrow" href="#registry" className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                icon="arrow"
+                href="https://payless-frontend-eight.vercel.app/search"
+                target="_blank"
+                className="w-full sm:w-auto"
+              >
                 Check a Phone
               </Button>
-              <Button variant="black" icon="link" href="#marketplace" className="w-full sm:w-auto">
+              <Button
+                variant="black"
+                icon="link"
+                href="/coming-soon"
+                target="_blank"
+                className="w-full sm:w-auto"
+              >
                 Start selling
               </Button>
               <span id="marketplace-anchor" className="sr-only" aria-hidden="true" />

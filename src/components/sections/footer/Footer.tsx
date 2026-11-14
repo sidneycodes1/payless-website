@@ -1,4 +1,4 @@
-type FooterLink = { label: string; href: string };
+type FooterLink = { label: string; href: string; target?: string };
 type FooterColumn = { title: string; links: FooterLink[] };
 
 const footerColumns: FooterColumn[] = [
@@ -20,8 +20,8 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Products",
     links: [
-      { label: "Registry", href: "#registry" },
-      { label: "Marketplace", href: "#marketplace" },
+      { label: "Registry", href: "https://payless-frontend-eight.vercel.app/", target: "_blank" },
+      { label: "Marketplace", href: "/coming-soon", target: "_blank" },
       { label: "How it works", href: "#how-it-works" },
     ],
   },
@@ -49,6 +49,8 @@ export const Footer = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    target={link.target}
+                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
                     className="text-h8 text-near-black/75 transition-colors hover:text-near-black"
                   >
                     {link.label}

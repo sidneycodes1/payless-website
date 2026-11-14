@@ -54,10 +54,22 @@ export const Benefits = () => {
               trade happens face-to-face at a trusted shop, and listing is free.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button variant="outline-dark" icon="arrow" className="w-full sm:w-auto">
+              <Button
+                variant="outline-dark"
+                icon="arrow"
+                href="https://payless-frontend-eight.vercel.app/search"
+                target="_blank"
+                className="w-full sm:w-auto"
+              >
                 Check a Phone
               </Button>
-              <Button variant="black" icon="link" className="w-full sm:w-auto">
+              <Button
+                variant="black"
+                icon="link"
+                href="/coming-soon"
+                target="_blank"
+                className="w-full sm:w-auto"
+              >
                 Start selling
               </Button>
             </div>

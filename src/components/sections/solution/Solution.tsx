@@ -7,9 +7,17 @@ type ProductCardProps = {
   id: string;
   tag: string;
   title: string;
+  buttonHref?: string;
+  buttonTarget?: string;
 };
 
-const ProductCard = ({ id, tag, title }: ProductCardProps) => {
+const ProductCard = ({
+  id,
+  tag,
+  title,
+  buttonHref = "https://payless-frontend-eight.vercel.app/",
+  buttonTarget = "_blank",
+}: ProductCardProps) => {
   return (
     <article
       id={id}
@@ -29,7 +37,12 @@ const ProductCard = ({ id, tag, title }: ProductCardProps) => {
       <div className="mt-10 rounded-[22px] border border-near-black bg-blue-light-active p-5 lg:mt-12">
         <p className="text-[12px] leading-relaxed text-near-black">{PANEL_COPY}</p>
         <div className="mt-4 flex justify-end">
-          <Button variant="black-sm" icon="arrow" href="#get-started">
+          <Button
+            variant="black-sm"
+            icon="arrow"
+            href={buttonHref}
+            target={buttonTarget}
+          >
             Get Started
           </Button>
         </div>
@@ -59,8 +72,20 @@ export const Solution = () => {
 
         {/* Product cards */}
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:mt-12 lg:gap-12">
-          <ProductCard id="registry" tag="Product 01" title="Registry — Free, for everyone." />
-          <ProductCard id="marketplace" tag="Product 02" title="Marketplace — Where you buy and sell." />
+          <ProductCard
+            id="registry"
+            tag="Product 01"
+            title="Registry — Free, for everyone."
+            buttonHref="https://payless-frontend-eight.vercel.app/"
+            buttonTarget="_blank"
+          />
+          <ProductCard
+            id="marketplace"
+            tag="Product 02"
+            title="Marketplace — Where you buy and sell."
+            buttonHref="/coming-soon"
+            buttonTarget="_blank"
+          />
         </div>
       </div>
     </section>
