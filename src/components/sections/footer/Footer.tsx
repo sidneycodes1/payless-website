@@ -35,22 +35,21 @@ const footerColumns: FooterColumn[] = [
 ];
 
 /**
- * Footer has no background of its own — it renders inside the GetStarted
- * cream card, flush with the card's bottom padding.
+ * Footer renders inside the GetStarted cream card, matching the Figma layout.
  */
 export const Footer = () => {
   return (
-    <footer className="mt-16">
-      <div className="grid grid-cols-1 gap-x-10 gap-y-10 text-left sm:grid-cols-2 sm:justify-items-end sm:text-right lg:grid-cols-4">
+    <footer className="mt-12 pt-8 border-t border-near-black/10">
+      <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:justify-items-end text-left sm:text-right">
         {footerColumns.map((column) => (
           <div key={column.title}>
             <h3 className="text-h7 font-semibold text-near-black">{column.title}</h3>
-            <ul className="mt-4 space-y-4">
+            <ul className="mt-3 space-y-2.5">
               {column.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-h8 text-near-black/70 transition-colors hover:text-near-black"
+                    className="text-h8 text-near-black/75 transition-colors hover:text-near-black"
                   >
                     {link.label}
                   </a>
@@ -61,7 +60,7 @@ export const Footer = () => {
         ))}
       </div>
 
-      <div className="mt-12 border-t border-near-black/15 pt-8">
+      <div className="mt-8 pt-4">
         <p className="text-center text-h8 text-near-black/70">
           © Payless 2026. All rights reserved. · Made for Nigeria&apos;s second-hand phone market.
         </p>

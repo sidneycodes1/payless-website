@@ -7,20 +7,21 @@
 
   H1–H5 are fluid: they hit the Figma desktop sizes from 1280px up and shrink
   to roughly half at 375px (phone). H6–H9 are small enough to stay fixed.
-  NOTE: the landing-page design renders the hero headline at ~48px on desktop
-  (see Designs screenshots), so --type-1 clamps to 48px, not the 80px of the
-  raw Figma type sheet.
+  NOTE: the landing-page design renders the hero headline at ~56px on desktop
+  (see Designs screenshots), so --type-1 clamps to 56px, not the 80px of the
+  raw Figma type sheet. H2 targets ~57px at 1440px (61px at 1920px) and H3
+  ~37px at 1440px.
 */
 :root {
-  --type-1: clamp(40px, 12.5vw + 0px, 48px); /* H1 — hero headline */
-  --type-2: clamp(30px, 2.3438vw + 1rem, 61px); /* H2 — section headlines */
-  --type-3: clamp(24px, 1.8vw + 1rem, 47px); /* H3 */
-  --type-4: clamp(18px, 1.4vw + 1rem, 36px); /* H4 */
-  --type-5: clamp(14px, 0.9vw + 1rem, 27px); /* H5 */
-  --type-6: 21px; /* H6 */
-  --type-7: 16px; /* H7 / base */
-  --type-8: 12px; /* H8 */
-  --type-9: 9px; /* H9 */
+  --type-1: clamp(32px, 3.75vw, 54px); /* H1 — hero headline */
+  --type-2: clamp(28px, 3.5vw, 54px);  /* H2 — section headlines */
+  --type-3: clamp(22px, 2.5vw, 36px);  /* H3 */
+  --type-4: clamp(18px, 2vw, 31.6px);  /* H4 */
+  --type-5: clamp(15px, 1.5vw, 24px);  /* H5 */
+  --type-6: 20px;                      /* H6 */
+  --type-7: 15px;                      /* H7 / base */
+  --type-8: 12px;                      /* H8 */
+  --type-9: 10px;                      /* H9 */
 
   --background: #ffffff;
   --foreground: #181a18;
@@ -28,6 +29,8 @@
 
 html {
   font-size: 16px; /* 1rem = 16px */
+  scroll-behavior: smooth;
+  scroll-padding-top: 99px;
   /* Real-device hardening: stop Android/Chrome font-boosting and iOS
      orientation text inflation from breaking the mobile layout. */
   -webkit-text-size-adjust: 100%;

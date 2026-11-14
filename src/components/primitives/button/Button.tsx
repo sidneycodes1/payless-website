@@ -10,16 +10,17 @@ type ButtonProps = {
   /** When provided the button renders as an <a> element. */
   href?: string;
   className?: string;
+  onClick?: () => void;
   children: ReactNode;
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
-  black: "bg-black text-cream rounded-full px-7 py-3.5 text-[15px]",
-  outline: "bg-transparent border border-white text-white rounded-full px-7 py-3.5 text-[15px]",
+  black: "bg-near-black text-cream rounded-[16px] px-5 py-3 text-[14px] font-semibold hover:bg-near-black/90",
+  outline: "bg-transparent border-2 border-cream text-cream rounded-[16px] px-5 py-3 text-[14px] font-semibold hover:bg-white/10",
   // Secondary CTA used on light (cream) backgrounds — dark border + dark label.
   "outline-dark":
-    "bg-transparent border border-near-black text-near-black rounded-full px-7 py-3.5 text-[15px]",
-  "black-sm": "bg-black text-cream rounded-full px-5 py-2.5 text-[13px]",
+    "bg-transparent border-2 border-near-black text-near-black rounded-[16px] px-5 py-3 text-[14px] font-semibold hover:bg-near-black/5",
+  "black-sm": "bg-near-black text-cream rounded-[16px] px-4 py-2.5 text-[13px] font-semibold hover:bg-near-black/90",
 };
 
 const ArrowIcon = () => (
@@ -67,7 +68,7 @@ const LinkIcon = () => (
   </svg>
 );
 
-export const Button = ({ variant = "black", icon = "none", href, className, children }: ButtonProps) => {
+export const Button = ({ variant = "black", icon = "none", href, className, onClick, children }: ButtonProps) => {
   const content = (
     <>
       {children}
@@ -84,14 +85,14 @@ export const Button = ({ variant = "black", icon = "none", href, className, chil
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} onClick={onClick}>
         {content}
       </a>
     );
   }
 
   return (
-    <button type="button" className={classes}>
+    <button type="button" className={classes} onClick={onClick}>
       {content}
     </button>
   );

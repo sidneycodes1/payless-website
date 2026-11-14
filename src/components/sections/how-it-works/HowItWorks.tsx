@@ -7,6 +7,13 @@ const REGISTRY_STEPS = [
   "Found your phone? Clear the flag. Use your secret phrase to mark it safe again — no office visit, no waiting.",
 ];
 
+const MARKETPLACE_STEPS = [
+  "Find a phone near you. Browse listings in your city — every one already checked against the registry.",
+  "Pay, and your money is held. Not the seller's, not ours — held safely until you confirm the phone is what you paid for.",
+  "Meet at a trusted location. A nearby partner shop, not a random street corner.",
+  "Inspect, then release payment. Only when you're happy does the seller get paid.",
+];
+
 const ArrowPath = () => (
   <path
     d="M3.33 10h13.34M11.67 5l5 5-5 5"
@@ -46,9 +53,9 @@ const StepArrowDown = () => (
 );
 
 const StepCard = ({ body, i }: { body: string; i: number }) => (
-  <div className="h-full rounded-xl border border-near-black bg-blue-light-active px-6 py-6 lg:flex-1">
+  <div className="h-full rounded-2xl border-[1.5px] border-near-black bg-blue-light-active p-4 lg:p-5 lg:flex-1">
     <p className="text-h7 font-bold text-near-black">Step {i + 1}</p>
-    <p className="mt-4 text-[15px] leading-[1.45] text-near-black">{body}</p>
+    <p className="mt-3 text-[12px] leading-relaxed text-near-black sm:text-[13px]">{body}</p>
   </div>
 );
 
@@ -58,7 +65,7 @@ const StepCard = ({ body, i }: { body: string; i: number }) => (
  * 4-across with right-pointing arrows at lg.
  */
 const StepRow = ({ steps }: { steps: string[] }) => (
-  <div className="mt-12 flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-5 lg:flex lg:flex-row lg:items-stretch lg:gap-5">
+  <div className="mt-6 flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-4 lg:flex lg:flex-row lg:items-center lg:gap-4">
     {steps.map((body, i) => (
       <Fragment key={body}>
         {i > 0 && <StepArrowDown />}
@@ -71,25 +78,25 @@ const StepRow = ({ steps }: { steps: string[] }) => (
 
 export const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="bg-primary">
-      <div className="mx-auto max-w-[1789px] px-6 pt-14 pb-16 lg:px-24">
+    <section id="how-it-works" className="bg-primary py-12 lg:py-16">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-[50px]">
         {/* Badge — right aligned on blue */}
         <div className="flex justify-end">
-          <span className="rounded-full bg-blue-light/20 px-5 py-2.5 text-h8 font-semibold text-blue-light-active">
+          <span className="rounded-full bg-blue-light/20 px-4 py-2 text-h8 font-semibold text-blue-light-active">
             How It Works
           </span>
         </div>
 
-        <h2 className="mt-9 text-right text-h2 font-semibold text-white">
+        <h2 className="mt-6 text-right text-h2 font-semibold leading-[1.25] text-white">
           Get To <span className="text-near-black">Understand.</span>
         </h2>
 
         {/* Block 1 — Registry, left aligned */}
-        <div className="mt-24">
+        <div className="mt-10 lg:mt-12">
           <h3 className="text-h3 font-semibold text-white">
             How the <span className="text-near-black">Registry</span> Works.
           </h3>
-          <p className="mt-7 max-w-[800px] text-[14px] leading-[1.55] text-blue-light-hover">
+          <p className="mt-4 max-w-[800px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px]">
             Lost your phone? Enter its IMEI (dial *#06# to find it) and Payless flags it instantly. You&apos;ll get a
             secret 3-word phrase — keep it safe, it&apos;s your key to clear the flag later if you get the phone back.
             From that moment, anyone who checks that IMEI sees it&apos;s stolen.
@@ -97,10 +104,26 @@ export const HowItWorks = () => {
 
           <StepRow steps={REGISTRY_STEPS} />
 
-          <p className="mt-12 max-w-[540px] text-[14px] leading-[1.55] text-blue-light-hover">
+          <p className="mt-6 max-w-[540px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px]">
             Before you buy, enter the phone&apos;s IMEI (dial *#06# to find it) and Payless checks it against the
             registry instantly. Clean means it&apos;s safe to buy. Flagged means walk away — no forms, no waiting.
           </p>
+
+          <div className="mt-12 text-left lg:text-right">
+            <h3 className="text-h3 font-semibold text-white">
+              How the <span className="text-near-black">Marketplace</span> Works
+            </h3>
+            <p className="mt-4 max-w-[650px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px] lg:ml-auto">
+              Find a phone for sale near you and pay — your money is held safely, not sent to the seller yet. Meet at a
+              trusted local shop to inspect the phone in person. Happy with it? Release payment on the spot. Not happy?
+              Walk away, no money lost.
+            </p>
+            <StepRow steps={MARKETPLACE_STEPS} />
+            <p className="mt-6 max-w-[540px] text-[13px] leading-relaxed text-blue-light-hover sm:text-[14px] lg:ml-auto">
+              List your phone free in minutes, get matched with a nearby buyer, meet at a trusted local shop, and get
+              paid the moment they confirm.
+            </p>
+          </div>
         </div>
       </div>
     </section>

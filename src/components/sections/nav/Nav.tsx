@@ -17,6 +17,15 @@ const NAV_LINKS = [
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close on Escape and lock body scroll while the mobile panel is open.
   useEffect(() => {
@@ -34,50 +43,62 @@ export const Nav = () => {
   }, [open]);
 
   return (
-    <header className="bg-primary">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 py-5 lg:px-8">
-        {/* Logo tile + wordmark */}
-        <a href="#home" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "shadow-lg shadow-black/15 border-b border-white/10" : ""
+      }`}
+    >
+      {/* Figma Frame: W: 1440 Fill, H: 99 Hug, Padding: px-[50px] py-[25px] */}
+      <div className="mx-auto flex h-[99px] w-full max-w-[1440px] items-center justify-between px-6 sm:px-8 lg:px-[50px]">
+        {/* Logo tile + wordmark (Figma node-id: 191:83) */}
+        <a
+          href="#home"
+          className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-90"
+          onClick={() => setOpen(false)}
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm">
             <Image
               src={ASSETS.logoMark}
               alt="Payless Protocol mark"
               width={26}
               height={26}
               className="h-[26px] w-[26px]"
+              priority
             />
           </span>
-          <span className="text-h7 font-semibold text-white">Payless Protocol</span>
+          <span className="font-display text-[16px] font-semibold text-cream">
+            Payless Protocol
+          </span>
         </a>
 
-        {/* Center-right links — desktop only */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        {/* Center-right links — desktop only (Figma node-id: 191:87) */}
+        <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <NavLink key={link.href} href={link.href} active={link.active} className="text-[15px]">
+            <NavLink key={link.href} href={link.href} active={link.active}>
               {link.label}
             </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* CTA — hidden on mobile; it lives inside the panel instead */}
+          {/* CTA — desktop (Figma node-id: 195:9383) */}
           <div className="hidden lg:block">
             <Button variant="black-sm" icon="arrow" href="#get-started">
               Get Started
             </Button>
           </div>
 
-          {/* Hamburger — below the lg breakpoint */}
+          {/* Hamburger button for mobile */}
           <button
             type="button"
             aria-expanded={open}
             aria-controls="mobile-nav-panel"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/30 text-white lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/30 text-white lg:hidden"
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             {open ? (
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
                 <path
                   d="M5 5l12 12M17 5L5 17"
                   stroke="currentColor"
@@ -86,7 +107,7 @@ export const Nav = () => {
                 />
               </svg>
             ) : (
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
                 <path
                   d="M3 6h16M3 11h16M3 16h16"
                   stroke="currentColor"
@@ -99,12 +120,12 @@ export const Nav = () => {
         </div>
       </div>
 
-      {/* Mobile panel — full width below the header */}
+      {/* Mobile panel — full width below the fixed header */}
       {open && (
         <nav
           id="mobile-nav-panel"
           aria-label="Mobile"
-          className="border-t border-white/15 bg-primary px-6 pb-8 pt-4 lg:hidden"
+          className="border-t border-white/15 bg-primary px-6 pb-8 pt-4 lg:hidden shadow-xl"
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
@@ -114,8 +135,8 @@ export const Nav = () => {
                   onClick={() => setOpen(false)}
                   className={
                     link.active
-                      ? "flex min-h-[44px] items-center text-[16px] font-semibold text-white"
-                      : "flex min-h-[44px] items-center text-[16px] text-white/60 transition-colors hover:text-white"
+                      ? "flex min-h-[44px] items-center font-display text-[16px] font-semibold text-cream"
+                      : "flex min-h-[44px] items-center font-display text-[16px] text-cream/60 transition-colors hover:text-cream"
                   }
                 >
                   {link.label}
@@ -128,6 +149,7 @@ export const Nav = () => {
             icon="arrow"
             href="#get-started"
             className="mt-6 w-full min-h-[44px] justify-center"
+            onClick={() => setOpen(false)}
           >
             Get Started
           </Button>

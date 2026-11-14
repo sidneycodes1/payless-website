@@ -25,60 +25,35 @@ const CHECKLIST = [
 
 const StatPill = ({ value, label, className }: { value: string; label: string; className?: string }) => (
   <div
-    className={`mt-4 flex w-fit items-center gap-3.5 rounded-2xl bg-black px-6 py-3.5 lg:mt-0 ${className ?? ""}`}
+    className={`flex w-fit items-center gap-3 rounded-2xl bg-near-black px-4 py-2.5 sm:px-5 sm:py-3 shadow-md ${className ?? ""}`}
   >
-    <span className="text-h5 font-bold text-white">{value}</span>
-    <span aria-hidden="true" className="h-9 w-px shrink-0 bg-white/50" />
-    <span className="max-w-[104px] text-h8 font-semibold leading-[1.3] text-white">{label}</span>
+    <span className="text-xl sm:text-2xl font-bold text-white">{value}</span>
+    <span aria-hidden="true" className="h-7 w-px shrink-0 bg-white/40" />
+    <span className="max-w-[110px] text-[11px] sm:text-xs font-semibold leading-tight text-white">{label}</span>
   </div>
 );
 
 export const Benefits = () => {
   return (
-    <section className="bg-cream">
-      <div className="mx-auto max-w-[1789px] px-6 pt-16 pb-28 lg:px-24">
-        {/* Badge */}
-        <span className="inline-flex rounded-full border border-near-black bg-blue-light-active px-5 py-2.5 text-h8 font-semibold text-near-black">
-          Why Payless?
-        </span>
-
-        <div className="mt-10 grid gap-20 lg:grid-cols-[1fr_600px] lg:gap-24">
-          {/* Left — headline + checklist */}
-          <div>
-            <h2 className="max-w-[640px] text-h2 font-semibold leading-[1.15] text-near-black">
+    <section className="bg-cream py-12 lg:py-16">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-[50px]">
+        {/* Top Header Row */}
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4">
+            <span className="inline-flex w-fit rounded-full border border-near-black bg-blue-light-active px-3.5 py-1.5 text-h8 font-semibold text-near-black">
+              Why Payless?
+            </span>
+            <h2 className="max-w-xl text-h2 font-semibold leading-[1.2] text-near-black">
               The <span className="text-primary">safer way</span> to buy and sell phones.
             </h2>
-
-            <ul className="mt-20 max-w-[660px]">
-              {CHECKLIST.map(({ lead, rest }) => (
-                <li
-                  key={lead}
-                  className="flex items-start gap-4 border-b border-near-black/20 pt-12 pb-6"
-                >
-                  <Image
-                    src={ASSETS.arrowUpRight}
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="mt-1 shrink-0"
-                  />
-                  <p className="text-h7 leading-[1.45] text-near-black">
-                    <span className="font-semibold">{lead}</span>
-                    {rest}
-                  </p>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          {/* Right — paragraph, buttons, photo with overlays */}
-          <div>
-            <p className="max-w-[560px] text-[18px] leading-[1.5] text-near-black lg:ml-auto lg:text-right">
+          <div className="flex flex-col gap-4 lg:items-end">
+            <p className="max-w-md text-h7 leading-relaxed text-near-black lg:text-right">
               Buying and selling phones without the risk. Your money stays safe until you&apos;re satisfied, every
               trade happens face-to-face at a trusted shop, and listing is free.
             </p>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-end">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <Button variant="outline-dark" icon="arrow" className="w-full sm:w-auto">
                 Check a Phone
               </Button>
@@ -86,34 +61,65 @@ export const Benefits = () => {
                 Start selling
               </Button>
             </div>
+          </div>
+        </div>
 
-            {/* Photo + overlay cards — cards sit in normal flow on mobile,
-                overlap the photo edges only from lg up (matches the design). */}
-            <div className="relative mt-12 flex w-full flex-col gap-4 lg:mt-40 lg:max-w-[520px] lg:-ml-10 lg:block lg:gap-0">
+        {/* Content Row: Checklist Left, Visual Box Right */}
+        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* Left Checklist */}
+          <ul className="flex flex-col">
+            {CHECKLIST.map(({ lead, rest }) => (
+              <li
+                key={lead}
+                className="flex items-start gap-4 border-b border-near-black/20 py-4 sm:py-5"
+              >
+                <Image
+                  src={ASSETS.arrowUpRight}
+                  alt=""
+                  width={18}
+                  height={18}
+                  className="mt-1 shrink-0"
+                />
+                <p className="text-[14px] leading-relaxed text-near-black">
+                  <span className="font-semibold">{lead}</span>
+                  {rest}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right Visual Box with Photo and Overlays */}
+          <div className="relative mx-auto h-[440px] w-full max-w-[540px] rounded-3xl lg:h-[480px]">
+            {/* Center photo */}
+            <div className="absolute left-1/2 top-1/2 h-[220px] w-[80%] max-w-[390px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[40px] shadow-sm">
               <Image
                 src={ASSETS.benefitsPhoto}
                 alt="Person holding a phone out towards the camera"
                 width={866}
                 height={475}
-                className="w-full rounded-2xl object-cover"
+                className="h-full w-full object-cover"
               />
+            </div>
 
-              <StatPill
-                value="100%"
-                label="Free IMEI Checks"
-                className="lg:absolute lg:-top-[102px] lg:right-0 lg:-right-[65px] lg:mt-0"
-              />
-              <StatPill
-                value="12-hour"
-                label="Buyer Protection Window"
-                className="lg:absolute lg:-bottom-[86px] lg:left-0 lg:-left-[37px] lg:mt-0"
-              />
+            {/* Stat 1: 100% Free IMEI Checks */}
+            <StatPill
+              value="100%"
+              label="Free IMEI Checks"
+              className="absolute right-2 top-4 sm:right-6 sm:top-8 z-10"
+            />
 
-              <div className="w-full rounded-2xl bg-near-black/20 p-5 backdrop-blur-md lg:absolute lg:-bottom-[41px] lg:right-0 lg:w-[245px] lg:-right-[125px] lg:mt-0">
-                <p className="text-[14px] leading-[1.45] text-near-black">
-                  Flag a stolen phone in under 60 seconds — no forms, no waiting.
-                </p>
-              </div>
+            {/* Stat 2: 12-hour Buyer Protection Window */}
+            <StatPill
+              value="12-hour"
+              label="Buyer Protection Window"
+              className="absolute bottom-4 left-2 sm:bottom-8 sm:left-4 z-10"
+            />
+
+            {/* Stat 3: Flag a stolen phone in under 60 seconds */}
+            <div className="absolute bottom-16 right-2 sm:bottom-20 sm:right-4 z-10 max-w-[200px] rounded-2xl bg-near-black/15 p-3.5 backdrop-blur-md sm:max-w-[220px]">
+              <p className="text-[12px] leading-snug text-near-black">
+                Flag a stolen phone in under 60 seconds — no forms, no waiting.
+              </p>
             </div>
           </div>
         </div>
