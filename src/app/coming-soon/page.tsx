@@ -19,7 +19,6 @@ export default function ComingSoon() {
             width={34}
             height={34}
             className="h-[34px] w-[34px]"
-            priority
           />
         </div>
 

@@ -16,7 +16,7 @@ const poppins = Poppins({
 // wdth 100 (normal width).
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  axes: ["opsz", "wdth"],
+  axes: ["opsz"],
   weight: "variable",
   fallback: ["Arial", "Helvetica", "sans-serif"],
   variable: "--font-bricolage",

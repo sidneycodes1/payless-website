@@ -35,6 +35,8 @@ export const Hero = () => {
                 width={278}
                 height={371}
                 priority
+                fetchPriority="high"
+                sizes="(min-width: 1024px) 278px, 250px"
                 className="h-[371px] w-[278px] object-contain"
               />
             </div>
@@ -107,6 +109,8 @@ export const Hero = () => {
                 width={278}
                 height={371}
                 priority
+                fetchPriority="high"
+                sizes="(min-width: 1024px) 278px, 250px"
                 className="h-full w-full object-contain"
               />
             </div>
@@ -139,7 +143,6 @@ export const Hero = () => {
                 alt="Hand holding a phone showing a payment screen"
                 width={674}
                 height={508}
-                priority
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-black/10" />
@@ -168,7 +171,6 @@ export const Hero = () => {
                 alt="Hand holding a phone showing a payment screen"
                 width={674}
                 height={508}
-                priority
                 className="h-full w-full object-cover"
               />
             </div>

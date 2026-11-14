@@ -6,14 +6,21 @@ import { ASSETS } from "@/lib/assets";
 import { Button } from "@/components/primitives/button/Button";
 import { NavLink } from "@/components/primitives/nav-link/NavLink";
 
-const NAV_LINKS = [
+type NavItem = {
+  href: string;
+  label: string;
+  active?: boolean;
+  target?: string;
+};
+
+const NAV_LINKS: NavItem[] = [
   { href: "#home", label: "Home", active: true },
   { href: "#registry", label: "Registry", active: false },
-  { href: "#marketplace", label: "Marketplace", active: false },
+  { href: "/coming-soon", label: "Marketplace", active: false, target: "_blank" },
   { href: "#how-it-works", label: "How it works", active: false },
   { href: "#about", label: "About us", active: false },
   { href: "#faq", label: "FAQ", active: false },
-] as const;
+];
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -63,7 +70,6 @@ export const Nav = () => {
               width={26}
               height={26}
               className="h-[26px] w-[26px]"
-              priority
             />
           </span>
           <span className="font-display text-[16px] font-semibold text-cream">
@@ -74,7 +80,12 @@ export const Nav = () => {
         {/* Center-right links — desktop only (Figma node-id: 191:87) */}
         <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
-            <NavLink key={link.href} href={link.href} active={link.active}>
+            <NavLink
+              key={link.label}
+              href={link.href}
+              active={link.active}
+              target={link.target}
+            >
               {link.label}
             </NavLink>
           ))}
@@ -134,9 +145,11 @@ export const Nav = () => {
         >
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
+              <li key={link.label}>
                 <a
                   href={link.href}
+                  target={link.target}
+                  rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   className={
                     link.active

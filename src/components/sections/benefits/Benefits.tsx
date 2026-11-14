@@ -101,7 +101,6 @@ export const Benefits = () => {
                     alt="Person holding a phone out towards the camera"
                     width={866}
                     height={475}
-                    priority
                     className="h-full w-full object-cover"
                   />
                 </div>
