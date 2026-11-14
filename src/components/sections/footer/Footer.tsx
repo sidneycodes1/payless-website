@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type FooterLink = { label: string; href: string; target?: string };
 type FooterColumn = { title: string; links: FooterLink[] };
 
@@ -6,7 +8,7 @@ const footerColumns: FooterColumn[] = [
     title: "Company",
     links: [
       { label: "About us", href: "#about" },
-      { label: "Become a partner hub", href: "#" },
+      { label: "Become a partner hub", href: "/partner-hub" },
       { label: "Contact us", href: "#" },
     ],
   },
@@ -47,14 +49,23 @@ export const Footer = () => {
             <ul className="mt-3 space-y-2.5">
               {column.links.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target={link.target}
-                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                    className="text-h8 text-near-black/75 transition-colors hover:text-near-black"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") && link.target !== "_blank" ? (
+                    <Link
+                      href={link.href}
+                      className="text-h8 text-near-black/75 transition-colors hover:text-near-black"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target={link.target}
+                      rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                      className="text-h8 text-near-black/75 transition-colors hover:text-near-black"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
