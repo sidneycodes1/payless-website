@@ -32,6 +32,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 99px;
   overflow-x: clip;
+  touch-action: pan-x pan-y;
   /* Real-device hardening: stop Android/Chrome font-boosting and iOS
      orientation text inflation from breaking the mobile layout. */
   -webkit-text-size-adjust: 100%;
@@ -43,9 +44,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   /* Safety net: a 1px sub-pixel rounding overflow on some mobile browsers
-     must never create a horizontal scrollbar; all sections already fit by
-     design. clip (not hidden) so body stays out of the scroll chain. */
+      must never create a horizontal scrollbar; all sections already fit by
+      design. clip (not hidden) so body stays out of the scroll chain. */
   overflow-x: clip;
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {

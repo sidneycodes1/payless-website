@@ -66,14 +66,14 @@ export const Benefits = () => {
           </div>
         </div>
 
-        {/* Content Row: Checklist Left, Visual Box Right */}
-        <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* Left Checklist */}
-          <ul className="flex flex-col">
+        {/* Content Row: Figma Frame 126 (1340 Fill x 539 Hug, Gap: Auto / justify-between) */}
+        <div className="mt-12 flex flex-col gap-12 lg:mt-16 lg:flex-row lg:items-center lg:justify-between">
+          {/* Left Checklist — Figma Frame 120 (W: 544px, H: 436.5px Hug, Gap: 35px) */}
+          <ul className="flex w-full flex-col gap-[35px] lg:w-[480px] xl:w-[544px] lg:shrink-0">
             {CHECKLIST.map(({ lead, rest }) => (
               <li
                 key={lead}
-                className="flex items-start gap-4 border-b border-near-black/20 py-4 sm:py-5"
+                className="flex items-start gap-4 border-b border-near-black/20 pb-4 sm:pb-[18px]"
               >
                 <Image
                   src={ASSETS.arrowUpRight}
@@ -82,7 +82,7 @@ export const Benefits = () => {
                   height={18}
                   className="mt-1 shrink-0"
                 />
-                <p className="text-[14px] leading-relaxed text-near-black">
+                <p className="font-sans text-[14px] leading-relaxed text-near-black">
                   <span className="font-semibold">{lead}</span>
                   {rest}
                 </p>
@@ -90,9 +90,9 @@ export const Benefits = () => {
             ))}
           </ul>
 
-          {/* Right Visual Box with Photo and Overlays — Exact Figma Frame 125 (632x539) */}
-          <div className="relative mx-auto flex w-full items-center justify-center lg:justify-end">
-            <div className="relative h-[290px] w-[340px] sm:h-[360px] sm:w-[420px] lg:h-[539px] lg:w-[632px] origin-center lg:origin-top-right overflow-hidden transform scale-[0.54] sm:scale-[0.66] lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 transition-transform">
+          {/* Right Visual Box — Figma Frame 125 (W: 632px, H: 539px, X: 708px) */}
+          <div className="relative mx-auto flex w-full items-center justify-center lg:w-[632px] lg:justify-end lg:shrink-0">
+            <div className="relative h-[320px] w-[375px] sm:h-[420px] sm:w-[492px] lg:h-[539px] lg:w-[632px] origin-center lg:origin-right transform scale-[0.59] sm:scale-[0.78] lg:scale-[0.84] xl:scale-[0.94] 2xl:scale-100 transition-transform">
               <div className="absolute left-0 top-0 h-[539px] w-[632px]">
                 {/* Frame 121: Photo (W: 432.54px, H: 237.32px, X: 63.46px, Y: 145.66px, rounded: 63.8px) */}
                 <div className="absolute left-[63.46px] top-[145.66px] h-[237.32px] w-[432.54px] overflow-hidden rounded-[63.8px] shadow-sm">
@@ -120,8 +120,8 @@ export const Benefits = () => {
                 </div>
 
                 {/* Frame 124: Stat 3 (W: 211px, H: 86px Hug, X: 387px, Y: 342.98px, rounded: 25px) */}
-                <div className="absolute left-[387px] top-[342.98px] z-10 flex h-[86px] w-[211px] items-center gap-[10px] rounded-[25px] bg-near-black/20 px-[18px] py-[16px] backdrop-blur-[25px] shadow-sm">
-                  <p className="font-sans text-[12px] font-medium leading-[1.4] text-near-black">
+                <div className="absolute left-[387px] top-[342.98px] z-10 flex h-[86px] w-[211px] items-center gap-[10px] rounded-[25px] bg-near-black/25 px-[18px] py-[16px] backdrop-blur-[25px] shadow-sm">
+                  <p className="font-sans text-[12px] font-medium leading-[1.35] text-near-black">
                     Flag a stolen phone in under 60 seconds — no forms, no waiting.
                   </p>
                 </div>
