@@ -31,6 +31,7 @@ html {
   font-size: 16px; /* 1rem = 16px */
   scroll-behavior: smooth;
   scroll-padding-top: 99px;
+  overflow-x: clip;
   /* Real-device hardening: stop Android/Chrome font-boosting and iOS
      orientation text inflation from breaking the mobile layout. */
   -webkit-text-size-adjust: 100%;

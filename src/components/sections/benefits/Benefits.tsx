@@ -92,7 +92,7 @@ export const Benefits = () => {
 
           {/* Right Visual Box with Photo and Overlays — Exact Figma Frame 125 (632x539) */}
           <div className="relative mx-auto flex w-full items-center justify-center lg:justify-end">
-            <div className="relative h-[290px] w-[340px] sm:h-[360px] sm:w-[420px] lg:h-[539px] lg:w-[632px] origin-center lg:origin-top-right transform scale-[0.54] sm:scale-[0.66] lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 transition-transform">
+            <div className="relative h-[290px] w-[340px] sm:h-[360px] sm:w-[420px] lg:h-[539px] lg:w-[632px] origin-center lg:origin-top-right overflow-hidden transform scale-[0.54] sm:scale-[0.66] lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 transition-transform">
               <div className="absolute left-0 top-0 h-[539px] w-[632px]">
                 {/* Frame 121: Photo (W: 432.54px, H: 237.32px, X: 63.46px, Y: 145.66px, rounded: 63.8px) */}
                 <div className="absolute left-[63.46px] top-[145.66px] h-[237.32px] w-[432.54px] overflow-hidden rounded-[63.8px] shadow-sm">
