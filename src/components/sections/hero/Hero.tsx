@@ -101,8 +101,8 @@ export const Hero = () => {
           </div>
 
           {/* Mobile/Tablet Fallback for Left Visual */}
-          <div className="relative mx-auto mt-4 h-[360px] w-full max-w-[340px] sm:max-w-[420px] lg:hidden">
-            <div className="absolute left-1/2 top-0 h-[340px] w-[250px] -translate-x-1/2">
+          <div className="relative mx-auto mt-2 h-[320px] sm:h-[360px] w-full max-w-[320px] sm:max-w-[390px] lg:hidden">
+            <div className="absolute left-1/2 top-3 h-[270px] sm:h-[310px] w-[210px] sm:w-[240px] -translate-x-1/2">
               <Image
                 src={ASSETS.heroPhoneMock}
                 alt="Tilted phone lock-screen mockup"
@@ -110,23 +110,23 @@ export const Hero = () => {
                 height={371}
                 priority
                 fetchPriority="high"
-                sizes="(min-width: 1024px) 278px, 250px"
-                className="h-full w-full object-contain"
+                sizes="(min-width: 640px) 240px, 210px"
+                className="h-full w-full object-contain drop-shadow-xl"
               />
             </div>
             {/* 2k+ chip */}
-            <div className="absolute left-0 top-[20px] z-10 flex items-center gap-2 rounded-[16px] bg-[rgba(203,200,197,0.25)] px-3 py-2 backdrop-blur-[12.5px]">
+            <div className="absolute left-0 top-0 z-10 flex items-center gap-2 rounded-[16px] bg-[rgba(203,200,197,0.25)] px-3 py-1.5 backdrop-blur-[14px] border border-white/15 shadow-sm">
               <div className="flex -space-x-2">
-                <Image src={ASSETS.avatar1} alt="" width={36} height={36} className="size-9 rounded-full border border-cream object-cover" />
-                <Image src={ASSETS.avatar2} alt="" width={36} height={36} className="size-9 rounded-full border border-cream object-cover" />
-                <Image src={ASSETS.avatar4} alt="" width={36} height={36} className="size-9 rounded-full border border-cream object-cover" />
+                <Image src={ASSETS.avatar1} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
+                <Image src={ASSETS.avatar2} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
+                <Image src={ASSETS.avatar4} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
               </div>
-              <span className="h-6 w-px bg-cream/40" />
-              <span className="font-display text-[13px] font-semibold text-cream leading-tight">2k+ Happy Users</span>
+              <span className="h-5 w-px bg-cream/40" />
+              <span className="font-display text-[12px] sm:text-[13px] font-semibold text-cream leading-tight">2k+ Happy Users</span>
             </div>
             {/* Glass Card */}
-            <div className="absolute bottom-2 right-0 z-10 w-[88%] rounded-[16px] bg-[rgba(203,200,197,0.25)] p-3 backdrop-blur-[12.5px]">
-              <p className="text-[12px] leading-relaxed text-cream">{GLASS_FIND}</p>
+            <div className="absolute bottom-0 right-0 z-10 w-[84%] sm:w-[80%] rounded-[18px] bg-[rgba(203,200,197,0.25)] p-3 backdrop-blur-[14px] border border-white/15 shadow-md">
+              <p className="text-[11.5px] sm:text-[12px] leading-relaxed text-cream font-medium">{GLASS_FIND}</p>
             </div>
           </div>
         </div>
@@ -164,8 +164,8 @@ export const Hero = () => {
           </div>
 
           {/* Mobile/Tablet Fallback for Right Visual */}
-          <div className="relative mx-auto h-[320px] w-full max-w-[340px] sm:max-w-[420px] lg:hidden">
-            <div className="absolute left-1/2 top-8 h-[220px] w-[280px] -translate-x-1/2 overflow-hidden rounded-[30px]">
+          <div className="relative mx-auto my-2 h-[260px] sm:h-[300px] w-full max-w-[320px] sm:max-w-[390px] lg:hidden">
+            <div className="absolute left-1/2 top-4 h-[190px] sm:h-[220px] w-[250px] sm:w-[290px] -translate-x-1/2 overflow-hidden rounded-[26px] sm:rounded-[32px] shadow-md border border-white/10">
               <Image
                 src={ASSETS.heroPhoto}
                 alt="Hand holding a phone showing a payment screen"
@@ -174,11 +174,11 @@ export const Hero = () => {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute right-0 top-0 z-10 w-[80%] rounded-[16px] bg-[rgba(203,200,197,0.25)] p-3 backdrop-blur-[12.5px]">
-              <p className="text-[12px] leading-relaxed text-cream">{GLASS_CHECK}</p>
+            <div className="absolute right-0 top-0 z-10 w-[80%] sm:w-[75%] rounded-[16px] bg-[rgba(203,200,197,0.25)] p-2.5 sm:p-3 backdrop-blur-[14px] border border-white/15 shadow-md">
+              <p className="text-[11px] sm:text-[12px] leading-relaxed text-cream font-medium">{GLASS_CHECK}</p>
             </div>
-            <div className="absolute bottom-2 left-0 z-10 rounded-[16px] bg-[rgba(203,200,197,0.25)] px-4 py-2 backdrop-blur-[12.5px]">
-              <p className="text-[12px] font-semibold text-cream whitespace-nowrap">{PEACE_PILL}</p>
+            <div className="absolute bottom-0 left-0 z-10 rounded-[14px] bg-[rgba(203,200,197,0.25)] px-3.5 py-2 backdrop-blur-[14px] border border-white/15 shadow-sm">
+              <p className="text-[11.5px] sm:text-[12px] font-semibold text-cream whitespace-nowrap">{PEACE_PILL}</p>
             </div>
           </div>
 

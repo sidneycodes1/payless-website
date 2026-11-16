@@ -28,7 +28,7 @@ export const Problem = () => {
         {/* Bottom Row: Illustration left / Result line right (Figma Frame 110) */}
         <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex w-full justify-start lg:w-auto">
-            <div className="relative h-[250px] w-full max-w-[486px] overflow-hidden rounded-[50px] border-2 border-cream/80 shadow-sm">
+            <div className="relative aspect-[486/250] w-full max-w-[486px] overflow-hidden rounded-[24px] sm:rounded-[36px] lg:rounded-[50px] border-2 border-cream/80 shadow-sm">
               <Image
                 src={ASSETS.problemIllustration}
                 alt="Person holding a phone beside a card and keys"
