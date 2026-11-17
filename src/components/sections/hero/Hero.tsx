@@ -26,7 +26,7 @@ export const Hero = () => {
           </div>
 
           {/* Desktop Left Visual (Figma Frame 89: W: 669px, H: 371px) */}
-          <div className="relative hidden h-[371px] w-[669px] origin-top-left transform lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 lg:block">
+          <div className="relative hidden h-[371px] w-[669px] origin-top-left transform xl:scale-[0.92] 2xl:scale-100 xl:block">
             {/* Phone Mockup: Frame 95 (W: 278px, H: 371px, X: 167px, Y: 0px) */}
             <div className="absolute left-[167px] top-0 h-[371px] w-[278px]">
               <Image
@@ -100,9 +100,10 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Fallback for Left Visual */}
-          <div className="relative mx-auto mt-2 h-[320px] sm:h-[360px] w-full max-w-[320px] sm:max-w-[390px] lg:hidden">
-            <div className="absolute left-1/2 top-3 h-[270px] sm:h-[310px] w-[210px] sm:w-[240px] -translate-x-1/2">
+          {/* Mobile/Tablet Fluid Visual for Left Column (< 1280px) */}
+          <div className="relative mx-auto w-full max-w-[669px] aspect-[320/330] sm:aspect-[669/371] xl:hidden">
+            {/* Phone Mockup */}
+            <div className="absolute left-[20%] top-0 h-[95%] w-[58%] sm:left-[24.96%] sm:top-0 sm:h-full sm:w-[41.55%]">
               <Image
                 src={ASSETS.heroPhoneMock}
                 alt="Tilted phone lock-screen mockup"
@@ -110,23 +111,46 @@ export const Hero = () => {
                 height={371}
                 priority
                 fetchPriority="high"
-                sizes="(min-width: 640px) 240px, 210px"
-                className="h-full w-full object-contain drop-shadow-xl"
+                sizes="(min-width: 640px) 278px, 210px"
+                className="h-full w-full object-contain"
               />
             </div>
-            {/* 2k+ chip */}
-            <div className="absolute left-0 top-0 z-10 flex items-center gap-2 rounded-[16px] bg-[rgba(203,200,197,0.25)] px-3 py-1.5 backdrop-blur-[14px] border border-white/15 shadow-sm">
-              <div className="flex -space-x-2">
-                <Image src={ASSETS.avatar1} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
-                <Image src={ASSETS.avatar2} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
-                <Image src={ASSETS.avatar4} alt="" width={32} height={32} className="size-8 rounded-full border border-cream object-cover" />
+
+            {/* 2k+ Happy Users Chip */}
+            <div className="absolute left-0 top-[4%] z-10 flex items-center gap-2 rounded-[16px] bg-[rgba(203,200,197,0.25)] px-3 py-1.5 backdrop-blur-[14px] border border-white/15 shadow-sm sm:top-[11.05%] sm:h-[74px] sm:w-fit sm:gap-[10px] sm:rounded-[20px] sm:px-[18px] sm:py-[12px]">
+              <div className="flex items-center">
+                <div className="relative -mr-2 size-7 sm:size-10 md:size-[50px] sm:-mr-2.5 shrink-0 overflow-hidden rounded-full border border-cream sm:border-2">
+                  <Image src={ASSETS.avatar1} alt="" width={50} height={50} className="h-full w-full object-cover" />
+                </div>
+                <div className="relative -mr-2 size-7 sm:size-10 md:size-[50px] sm:-mr-2.5 shrink-0 overflow-hidden rounded-full border border-cream sm:border-2">
+                  <Image src={ASSETS.avatar2} alt="" width={50} height={50} className="h-full w-full object-cover" />
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="relative -mr-2 size-7 sm:size-10 md:size-[50px] sm:-mr-2.5 shrink-0 overflow-hidden rounded-full border border-cream sm:border-2 bg-cover"
+                  style={{
+                    backgroundImage: `url("${ASSETS.avatar3CardCrop}")`,
+                    backgroundSize: "280%",
+                    backgroundPosition: "50% 20%",
+                  }}
+                />
+                <div className="relative size-7 sm:size-10 md:size-[50px] shrink-0 overflow-hidden rounded-full border border-cream sm:border-2">
+                  <Image src={ASSETS.avatar4} alt="" width={50} height={50} className="h-full w-full object-cover" />
+                </div>
               </div>
-              <span className="h-5 w-px bg-cream/40" />
-              <span className="font-display text-[12px] sm:text-[13px] font-semibold text-cream leading-tight">2k+ Happy Users</span>
+              <div className="flex items-center justify-center border-l sm:border-l-2 border-cream pl-2 sm:px-[10px]">
+                <div className="font-display text-[12px] sm:text-[14px] md:text-[16px] font-semibold leading-tight sm:leading-[1.2] text-cream whitespace-nowrap">
+                  <p className="mb-0">2k+ Happy</p>
+                  <p>Users</p>
+                </div>
+              </div>
             </div>
+
             {/* Glass Card */}
-            <div className="absolute bottom-0 right-0 z-10 w-[84%] sm:w-[80%] rounded-[18px] bg-[rgba(203,200,197,0.25)] p-3 backdrop-blur-[14px] border border-white/15 shadow-md">
-              <p className="text-[11.5px] sm:text-[12px] leading-relaxed text-cream font-medium">{GLASS_FIND}</p>
+            <div className="absolute left-[12%] bottom-[2%] z-10 w-[86%] rounded-[18px] bg-[rgba(203,200,197,0.25)] p-3 sm:p-4 backdrop-blur-[14px] border border-white/15 shadow-md sm:left-[39.76%] sm:w-[53.36%] sm:rounded-[20px] sm:px-[18px] sm:py-[16px]">
+              <p className="font-sans text-[14px] sm:text-[13px] lg:text-[12px] font-medium leading-[1.35] sm:leading-[1.4] text-cream">
+                {GLASS_FIND}
+              </p>
             </div>
           </div>
         </div>
@@ -135,7 +159,7 @@ export const Hero = () => {
         {/* Figma: Frame 90, max-width: 669px */}
         <div className="flex w-full flex-col gap-6 lg:w-1/2 lg:max-w-[669px] lg:items-end">
           {/* Desktop Right Visual (Figma Frame 195:9381: W: 669px, H: 371px) */}
-          <div className="relative hidden h-[371px] w-[669px] origin-top-right transform lg:scale-[0.84] xl:scale-[0.92] 2xl:scale-100 lg:block">
+          <div className="relative hidden h-[371px] w-[669px] origin-top-right transform xl:scale-[0.92] 2xl:scale-100 xl:block">
             {/* Photo: Frame 203:73 (W: 337px, H: 254px, Top: 65px, rounded: 40px) */}
             <div className="absolute left-[calc(50%+29.5px)] top-[65px] h-[254px] w-[337px] -translate-x-1/2 overflow-hidden rounded-[40px] shadow-sm">
               <Image
@@ -163,9 +187,10 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet Fallback for Right Visual */}
-          <div className="relative mx-auto my-2 h-[260px] sm:h-[300px] w-full max-w-[320px] sm:max-w-[390px] lg:hidden">
-            <div className="absolute left-1/2 top-4 h-[190px] sm:h-[220px] w-[250px] sm:w-[290px] -translate-x-1/2 overflow-hidden rounded-[26px] sm:rounded-[32px] shadow-md border border-white/10">
+          {/* Mobile/Tablet Fluid Visual for Right Column (< 1280px) */}
+          <div className="relative mx-auto w-full max-w-[646px] aspect-[320/280] sm:aspect-[646/371] xl:hidden">
+            {/* Photo */}
+            <div className="absolute left-[16%] top-[12%] h-[72%] w-[68%] overflow-hidden rounded-[24px] shadow-md border border-white/10 sm:left-[28.48%] sm:top-[17.52%] sm:h-[68.46%] sm:w-[52.17%] sm:rounded-[40px]">
               <Image
                 src={ASSETS.heroPhoto}
                 alt="Hand holding a phone showing a payment screen"
@@ -173,12 +198,21 @@ export const Hero = () => {
                 height={508}
                 className="h-full w-full object-cover"
               />
+              <div className="absolute inset-0 bg-black/10" />
             </div>
-            <div className="absolute right-0 top-0 z-10 w-[80%] sm:w-[75%] rounded-[16px] bg-[rgba(203,200,197,0.25)] p-2.5 sm:p-3 backdrop-blur-[14px] border border-white/15 shadow-md">
-              <p className="text-[11px] sm:text-[12px] leading-relaxed text-cream font-medium">{GLASS_CHECK}</p>
+
+            {/* Top-Right Glass Card */}
+            <div className="absolute right-[2%] top-[4%] z-10 w-[80%] rounded-[16px] bg-[rgba(203,200,197,0.25)] p-2.5 sm:p-3 backdrop-blur-[14px] border border-white/15 shadow-md sm:left-[54.64%] sm:right-auto sm:top-[5.93%] sm:w-[45.36%] sm:rounded-[20px] sm:px-[18px] sm:py-[16px]">
+              <p className="font-sans text-[14px] sm:text-[13px] lg:text-[12px] font-medium leading-[1.35] sm:leading-[1.4] text-cream">
+                {GLASS_CHECK}
+              </p>
             </div>
-            <div className="absolute bottom-0 left-0 z-10 rounded-[14px] bg-[rgba(203,200,197,0.25)] px-3.5 py-2 backdrop-blur-[14px] border border-white/15 shadow-sm">
-              <p className="text-[11.5px] sm:text-[12px] font-semibold text-cream whitespace-nowrap">{PEACE_PILL}</p>
+
+            {/* Bottom-Left Peace Pill */}
+            <div className="absolute left-[2%] top-[60%] z-10 flex h-[40px] items-center rounded-[14px] bg-[rgba(203,200,197,0.25)] px-3.5 py-2 backdrop-blur-[14px] border border-white/15 shadow-sm sm:left-[1.86%] sm:top-[59.57%] sm:h-auto sm:w-fit sm:rounded-[20px] sm:px-[18px] sm:py-[16px]">
+              <p className="font-sans text-[12px] font-semibold leading-normal sm:leading-[1.5] text-cream whitespace-nowrap">
+                {PEACE_PILL}
+              </p>
             </div>
           </div>
 

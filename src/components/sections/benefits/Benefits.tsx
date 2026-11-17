@@ -91,8 +91,8 @@ export const Benefits = () => {
           </ul>
 
           {/* Right Visual Box — Desktop (Figma Frame 125: W: 632px, H: 539px, X: 708px) */}
-          <div className="relative hidden lg:flex lg:w-[632px] lg:justify-end lg:shrink-0">
-            <div className="relative h-[539px] w-[632px] origin-right transform lg:scale-[0.84] xl:scale-[0.94] 2xl:scale-100 transition-transform">
+          <div className="relative hidden xl:flex xl:w-[632px] xl:justify-end xl:shrink-0">
+            <div className="relative h-[539px] w-[632px] origin-right transform xl:scale-[0.94] 2xl:scale-100 transition-transform">
               <div className="absolute left-0 top-0 h-[539px] w-[632px]">
                 {/* Frame 121: Photo (W: 432.54px, H: 237.32px, X: 63.46px, Y: 145.66px, rounded: 63.8px) */}
                 <div className="absolute left-[63.46px] top-[145.66px] h-[237.32px] w-[432.54px] overflow-hidden rounded-[63.8px] shadow-sm">
@@ -129,10 +129,10 @@ export const Benefits = () => {
             </div>
           </div>
 
-          {/* Right Visual Box — Mobile & Tablet Fluid Responsive */}
-          <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[460px] pt-4 pb-6 lg:hidden">
+          {/* Right Visual Box — Mobile & Tablet Fluid Responsive (< 1280px) */}
+          <div className="relative mx-auto w-full max-w-[632px] aspect-[320/390] sm:aspect-[632/539] xl:hidden">
             {/* Fluid Photo Frame */}
-            <div className="relative mx-auto w-[88%] aspect-[432/237] overflow-hidden rounded-[26px] sm:rounded-[36px] shadow-sm">
+            <div className="absolute left-[4%] top-[18%] h-[47%] w-[72%] overflow-hidden rounded-[24px] shadow-sm sm:left-[10.04%] sm:top-[27.02%] sm:h-[44.03%] sm:w-[68.44%] sm:rounded-[63.8px]">
               <Image
                 src={ASSETS.benefitsPhoto}
                 alt="Person holding a phone out towards the camera"
@@ -143,22 +143,22 @@ export const Benefits = () => {
             </div>
 
             {/* Stat 1: Top-Right Badge (100% Free IMEI Checks) */}
-            <div className="absolute right-0 top-0 z-10 flex h-[44px] items-center gap-2 rounded-[14px] bg-near-black px-3 py-2 shadow-md">
-              <span className="text-[16px] sm:text-[18px] font-bold text-white leading-none">100%</span>
-              <span aria-hidden="true" className="h-5 w-px shrink-0 bg-white/40" />
-              <span className="text-[10.5px] sm:text-[11px] font-semibold leading-tight text-white">Free IMEI Checks</span>
+            <div className="absolute right-[3%] top-[3%] z-10 flex h-[44px] items-center gap-2 rounded-[14px] bg-near-black px-3 py-2 shadow-md sm:left-[56.49%] sm:right-auto sm:top-[10.94%] sm:h-auto sm:w-fit sm:max-w-[40%] sm:gap-[8.5px] sm:rounded-[17px] sm:px-[15px] sm:py-[10px]">
+              <span className="text-[16px] sm:text-[20px] font-bold text-white leading-none">100%</span>
+              <span aria-hidden="true" className="h-5 sm:h-6 w-px shrink-0 bg-white/40" />
+              <span className="text-[12px] sm:text-[11px] font-semibold leading-tight text-white">Free IMEI Checks</span>
             </div>
 
             {/* Stat 2: Bottom-Left Badge (12-hour Buyer Protection Window) */}
-            <div className="absolute left-0 bottom-12 sm:bottom-14 z-10 flex h-[46px] items-center gap-2 rounded-[16px] bg-near-black px-3.5 py-2 shadow-md">
-              <span className="text-[16px] sm:text-[18px] font-bold text-white leading-none whitespace-nowrap">12-hour</span>
-              <span aria-hidden="true" className="h-5 w-px shrink-0 bg-white/40" />
-              <span className="text-[10.5px] sm:text-[11.5px] font-semibold leading-tight text-white">Buyer Protection Window</span>
+            <div className="absolute left-[3%] bottom-[3%] z-10 flex h-[46px] items-center gap-2 rounded-[16px] bg-near-black px-3.5 py-2 shadow-md sm:left-[5.22%] sm:bottom-[3%] sm:top-auto sm:h-auto sm:w-fit sm:gap-[8.7px] sm:rounded-[22px] sm:px-[15.6px] sm:py-[13.9px]">
+              <span className="text-[16px] sm:text-[22px] font-bold text-white leading-none whitespace-nowrap">12-hour</span>
+              <span aria-hidden="true" className="h-5 sm:h-7 w-px shrink-0 bg-white/40" />
+              <span className="text-[12px] font-semibold leading-tight text-white">Buyer Protection Window</span>
             </div>
 
             {/* Stat 3: Bottom-Right Frosted Card (Flag a stolen phone...) */}
-            <div className="relative mt-8 ml-auto w-[88%] sm:w-[80%] rounded-[18px] bg-near-black/15 p-3.5 backdrop-blur-[20px] shadow-sm border border-near-black/10">
-              <p className="font-sans text-[11.5px] sm:text-[12.5px] font-medium leading-[1.35] text-near-black">
+            <div className="absolute right-[3%] top-[48%] z-10 w-[65%] rounded-[18px] bg-near-black/25 p-3 sm:p-3.5 backdrop-blur-[20px] shadow-sm border border-near-black/10 sm:left-[61.23%] sm:right-auto sm:top-[53%] sm:w-[36%] sm:max-w-[211px] sm:rounded-[25px] sm:px-[16px] sm:py-[12px] sm:backdrop-blur-[25px]">
+              <p className="font-sans text-[14px] sm:text-[12px] font-medium leading-[1.35] text-near-black">
                 Flag a stolen phone in under 60 seconds — no forms, no waiting.
               </p>
             </div>
